@@ -3,7 +3,7 @@ function Content() {
     <div>
       Hello there!
     </div>
-  )
+  );
 }
 
 export default Content;
