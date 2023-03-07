@@ -1,7 +1,12 @@
+import '../styles/Content.css';
+import Form from './Form';
+import Table from './Table';
+
 function Content() {
   return (
-    <div>
-      Hello there!
+    <div id="content">
+      <Form />
+      <Table />
     </div>
   );
 }
