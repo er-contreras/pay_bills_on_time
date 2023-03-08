@@ -1,4 +1,8 @@
-function Table() {
+import { v4 as uuidv4 } from 'uuid';
+
+function Table(props) {
+  const { data } = props;
+
   return (
     <div className="table-content">
       <table>
@@ -9,14 +13,12 @@ function Table() {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>Row 1, Column 1</td>
-            <td>Row 1, Column 2</td>
-          </tr>
-          <tr>
-            <td>Row 2, Column 1</td>
-            <td>Row 2, Column 2</td>
-          </tr>
+          {data.map((row) => (
+            <tr key={uuidv4()}>
+              <td>{row.task}</td>
+              <td>{row.time}</td>
+            </tr>
+          ))}
         </tbody>
       </table>
     </div>
