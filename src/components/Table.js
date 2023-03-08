@@ -1,8 +1,7 @@
 import { v4 as uuidv4 } from 'uuid';
 
-function Table(props) {
-  const { data } = props;
-
+function Table(arg) {
+  const { data } = arg;
   return (
     <div className="table-content">
       <table>

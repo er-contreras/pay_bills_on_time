@@ -1,14 +1,15 @@
 import { useState } from 'react';
 
-function Form(props) {
+function Form(arg) {
   const [task, setTask] = useState('');
   const [time, setTime] = useState('');
+
+  const { onAddData } = arg;
 
   function handleSubmit(event) {
     event.preventDefault();
 
     const newData = { task, time };
-    const { onAddData } = props;
     onAddData(newData);
     setTask('');
     setTime('');
