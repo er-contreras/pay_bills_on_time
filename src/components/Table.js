@@ -4,8 +4,8 @@ function Table(arg) {
   const { data } = arg;
   return (
     <div className="table-content">
-      <table>
-        <thead>
+      <table className="table">
+        <thead className="thead">
           <tr>
             <th>Task</th>
             <th>Time</th>
