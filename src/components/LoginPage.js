@@ -1,6 +1,7 @@
 import { useState } from 'react';
 
-function LoginPage(setAuthenticated) {
+// eslint-disable-next-line react/prop-types
+function LoginPage({ setAuthenticated }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -15,7 +16,7 @@ function LoginPage(setAuthenticated) {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    fetch('/auth/login', {
+    fetch('http://localhost:3000/auth/login', {
       method: 'POST',
       body: JSON.stringify({ email, password }),
       headers: { 'Content-Type': 'application/json' },

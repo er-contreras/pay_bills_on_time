@@ -2,7 +2,7 @@ import './styles/App.css';
 import { useEffect, useState } from 'react';
 import Header from './components/Header';
 import Content from './components/Content';
-import LoginPage from './components/Login';
+import LoginPage from './components/LoginPage';
 
 function App() {
   const [authenticated, setAuthenticated] = useState(false);
@@ -18,7 +18,7 @@ function App() {
     <>
       <Header />
       {authenticated ? (
-        <Content to="/" />
+        <Content />
       ) : (
         <LoginPage setAuthenticated={setAuthenticated} />
       )}
