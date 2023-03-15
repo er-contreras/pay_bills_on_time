@@ -18,12 +18,12 @@ function LoginPage({ setAuthenticated }) {
 
     fetch('http://localhost:3000/auth/login', {
       method: 'POST',
-      body: JSON.stringify({ email, password }),
+      body: JSON.stringify({ user: { email, password } }),
       headers: { 'Content-Type': 'application/json' },
     })
       .then((response) => response.json())
       .then((data) => {
-        localStorage.setItem('jwt', data.jwt);
+        localStorage.setItem('token', data.token);
         setAuthenticated(true);
       })
       .catch((error) => {
