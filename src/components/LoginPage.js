@@ -18,8 +18,11 @@ function LoginPage({ setAuthenticated }) {
 
     fetch('http://localhost:3000/auth/login', {
       method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        // 'Authorization': `Bearer ${token}`,
+      },
       body: JSON.stringify({ user: { email, password } }),
-      headers: { 'Content-Type': 'application/json' },
     })
       .then((response) => response.json())
       .then((data) => {
