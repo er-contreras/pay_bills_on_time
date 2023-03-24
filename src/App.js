@@ -1,11 +1,13 @@
 import './styles/App.css';
-import { useEffect, useState } from 'react';
+// import { useState } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Header from './components/Header';
 import Content from './components/Content';
 import LoginPage from './components/LoginPage';
+import CreateUser from './components/CreateUser';
 
 function App() {
-  const [authenticated, setAuthenticated] = useState(false);
+  // const [authenticated, setAuthenticated] = useState(false);
   // const [user, setUser] = useState(false);
 
   // useEffect(() => {
@@ -15,22 +17,28 @@ function App() {
   //   }
   // }, []);
 
-  useEffect(() => {
-    if (localStorage.getItem('token')) {
-      fetch('http://localhost:3000/auth/login', {
-        headers: { Authenticate: localStorage.token },
-      })
-        .then((response) => response.json())
-        .then((user) => {
-          setAuthenticated(user);
-        });
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (localStorage.getItem('token')) {
+  //     fetch('http://localhost:3000/auth/login', {
+  //       headers: { Authenticate: localStorage.token },
+  //     })
+  //       .then((response) => response.json())
+  //       .then((user) => {
+  //         setAuthenticated(user);
+  //       });
+  //   }
+  // }, []);
 
   return (
     <>
       <Header />
-      {authenticated ? <Content /> : <LoginPage setAuthenticated={setAuthenticated} /> }
+      <Router>
+        <Routes>
+          <Route exact path="/" element={<Content />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/create-username" element={<CreateUser />} />
+        </Routes>
+      </Router>
     </>
   );
 }
