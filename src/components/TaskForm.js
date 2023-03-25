@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-function Form(arg) {
+function TaskForm(arg) {
   const [task, setTask] = useState('');
   const [time, setTime] = useState('');
 
@@ -16,7 +16,7 @@ function Form(arg) {
   }
 
   return (
-    <div className="form-content">
+    <div className="task-form-content">
       <form onSubmit={handleSubmit}>
         <label htmlFor="task">
           Add Task
@@ -34,4 +34,4 @@ function Form(arg) {
   );
 }
 
-export default Form;
+export default TaskForm;

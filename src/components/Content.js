@@ -1,6 +1,6 @@
 import '../styles/Content.css';
 import { useState } from 'react';
-import Form from './Form';
+import TaskForm from './TaskForm';
 import Table from './Table';
 
 function Content() {
@@ -12,7 +12,7 @@ function Content() {
 
   return (
     <div id="content">
-      <Form onAddData={handleAddData} />
+      <TaskForm onAddData={handleAddData} />
       <Table data={data} />
     </div>
   );

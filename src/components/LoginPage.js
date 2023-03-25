@@ -36,9 +36,9 @@ function LoginPage({ setAuthenticated }) {
   };
 
   return (
-    <>
+    <div>
       <h1>Please login first</h1>
-      <form onSubmit={handleSubmit}>
+      <form className="login-form" onSubmit={handleSubmit}>
         <div>
           <label htmlFor="email">
             Username or Email
@@ -55,7 +55,7 @@ function LoginPage({ setAuthenticated }) {
       </form>
 
       <Link to="/new">Create Account</Link>
-    </>
+    </div>
   );
 }
 
