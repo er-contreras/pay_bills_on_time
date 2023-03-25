@@ -17,7 +17,7 @@ function TaskForm(arg) {
 
   return (
     <div className="task-form-content">
-      <form onSubmit={handleSubmit}>
+      <form className="task-form-content" onSubmit={handleSubmit}>
         <label htmlFor="task">
           Add Task
           <input type="text" id="task" name="task" value={task} onChange={(event) => setTask(event.target.value)} />

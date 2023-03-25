@@ -41,7 +41,7 @@ function LoginPage({ setAuthenticated }) {
       <form className="login-form" onSubmit={handleSubmit}>
         <div>
           <label htmlFor="email">
-            Username or Email
+            Email
             <input type="email" id="email" value={email} onChange={handleEmailChange} />
           </label>
 
