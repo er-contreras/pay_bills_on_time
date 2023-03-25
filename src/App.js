@@ -36,7 +36,7 @@ function App() {
         <Routes>
           <Route exact path="/" element={<Content />} />
           <Route path="/login" element={<LoginPage />} />
-          <Route path="/create-username" element={<CreateUser />} />
+          <Route path="/new" element={<CreateUser />} />
         </Routes>
       </Router>
     </>

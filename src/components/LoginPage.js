@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 // eslint-disable-next-line react/prop-types
 function LoginPage({ setAuthenticated }) {
@@ -52,6 +53,8 @@ function LoginPage({ setAuthenticated }) {
           <button type="submit">Login</button>
         </div>
       </form>
+
+      <Link to="/new">Create Account</Link>
     </>
   );
 }
