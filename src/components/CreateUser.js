@@ -15,7 +15,7 @@ function CreateUser() {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    fetch('http://localhost:3000/users/new', {
+    fetch('http://localhost:3000/users', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -45,7 +45,7 @@ function CreateUser() {
             <input type="text" id="password" value={password} onChange={handlePasswordChange} />
           </label>
 
-          <button type="submit">Login</button>
+          <button type="submit">Create new user</button>
         </div>
       </form>
     </>
