@@ -1,8 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-// eslint-disable-next-line react/prop-types
-function LoginPage({ setAuthenticated }) {
+function LoginPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -29,7 +28,6 @@ function LoginPage({ setAuthenticated }) {
       .then((response) => response.json())
       .then((data) => {
         localStorage.setItem('token', data.token);
-        setAuthenticated(true);
       })
       .catch((error) => {
         console.log(error);
