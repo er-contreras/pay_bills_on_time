@@ -4,6 +4,7 @@ import Header from './components/Header';
 import Content from './components/Content';
 import LoginPage from './components/LoginPage';
 import CreateUser from './components/CreateUser';
+import Users from './components/Users';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Route exact path="/" element={<Content />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/new" element={<CreateUser />} />
+          <Route path="/users" element={<Users />} />
         </Routes>
       </Router>
     </>
