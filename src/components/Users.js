@@ -7,9 +7,12 @@ const Users = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch('http://localhost:3000/users')
+    fetch('http://localhost:3000/users', {
+      headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
+    })
       .then((response) => response.json())
       .then((data) => {
+        console.log(data);
         setUsers(data);
         setLoading(false);
       })
