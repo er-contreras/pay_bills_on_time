@@ -2,6 +2,7 @@ import '../styles/Content.css';
 import { useState, useEffect } from 'react';
 import TaskForm from './TaskForm';
 import Table from './Table';
+import LogOut from './LogOut';
 
 function Content() {
   const [data, setData] = useState([]);
@@ -71,6 +72,8 @@ function Content() {
       ) : (
         <h2>Please login first</h2>
       )}
+
+      <LogOut />
 
       <TaskForm onAddData={handleAddData} />
       <Table data={data} />
