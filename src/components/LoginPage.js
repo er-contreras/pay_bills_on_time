@@ -1,9 +1,10 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 function LoginPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
   const handleEmailChange = (event) => {
     setEmail(event.target.value);
@@ -25,9 +26,15 @@ function LoginPage() {
         user: { email, password },
       }),
     })
-      .then((response) => response.json())
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        }
+        throw new Error('Failed to login');
+      })
       .then((data) => {
         localStorage.setItem('token', data.token);
+        navigate('/');
       })
       .catch((error) => {
         console.log(error);
