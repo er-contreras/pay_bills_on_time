@@ -1,5 +1,5 @@
 import '../styles/Content.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import TaskForm from './TaskForm';
 import Table from './Table';
 import LogOut from './LogOut';
@@ -14,8 +14,8 @@ function Content() {
     setData((prevData) => [...prevData, newData]);
   };
 
-  if (localStorage.getItem('token')) {
-    const getUsers = () => {
+  useEffect(() => {
+    if (localStorage.getItem('token')) {
       fetch('http://localhost:3000/users', {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
       })
@@ -28,26 +28,22 @@ function Content() {
           setError(error);
           setLoading(false);
         });
-    }; // Empty dependency array to run only once on mount
+    } else {
+      window.location.href = '/login';
+    }
+  }, []); // Empty dependency array to run only once on mount
 
-    getUsers();
+  useEffect(() => {
+    const token = localStorage.getItem('token');
 
-    const currentUser = () => {
-      const token = localStorage.getItem('token');
+    if (token) {
+      const decodedToken = atob(token.split('.')[1]);
+      const decodedUserId = JSON.parse(decodedToken);
 
-      if (token) {
-        const decodedToken = atob(token.split('.')[1]);
-        const decodedUserId = JSON.parse(decodedToken);
-
-        const currentUser = data.find((user) => user.id === decodedUserId.user_id);
-        setUser(currentUser);
-      }
-    }; // Dependency on data to run whenever data changes
-
-    currentUser();
-  } else {
-    window.location.href = '/login';
-  }
+      const currentUser = data.find((user) => user.id === decodedUserId.user_id);
+      setUser(currentUser);
+    }
+  }, [data]); // Dependency on data to run whenever data changes
 
   if (loading) return <div>Loading...</div>;
   if (error) {
