@@ -4,41 +4,55 @@ import { Link, useNavigate } from 'react-router-dom';
 function LoginPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
   const navigate = useNavigate();
 
   const handleEmailChange = (event) => {
     setEmail(event.target.value);
+    setError('');
   };
 
   const handlePasswordChange = (event) => {
     setPassword(event.target.value);
+    setError('');
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    fetch('http://localhost:3000/auth/login', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        user: { email, password },
-      }),
-    })
-      .then((response) => {
-        if (response.ok) {
-          return response.json();
-        }
-        throw new Error('Failed to login');
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!email || !email.match(emailRegex)) {
+      setError('Please enter a valid email.');
+    }
+
+    if (!password || password.length < 8) {
+      setError('Password must be at least 8 characters.');
+    }
+
+    if (email && password) {
+      fetch('http://localhost:3000/auth/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          user: { email, password },
+        }),
       })
-      .then((data) => {
-        localStorage.setItem('token', data.token);
-        navigate('/');
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+        .then((response) => {
+          if (response.ok) {
+            return response.json();
+          }
+          throw new Error('Failed to login');
+        })
+        .then((data) => {
+          localStorage.setItem('token', data.token);
+          navigate('/');
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
   };
 
   return (
@@ -57,6 +71,7 @@ function LoginPage() {
           </label>
 
           <button type="submit">Login</button>
+          {error && <p>{error}</p>}
         </div>
       </form>
 
