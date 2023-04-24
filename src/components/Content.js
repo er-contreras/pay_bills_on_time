@@ -1,5 +1,5 @@
 import '../styles/Content.css';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import TaskForm from './TaskForm';
 import Table from './Table';
 import LogOut from './LogOut';
@@ -14,32 +14,40 @@ function Content() {
     setData((prevData) => [...prevData, newData]);
   };
 
-  useEffect(() => {
-    fetch('http://localhost:3000/users', {
-      headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        setData(data);
-        setLoading(false);
+  if (localStorage.getItem('token')) {
+    const getUsers = () => {
+      fetch('http://localhost:3000/users', {
+        headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
       })
-      .catch((error) => {
-        setError(error);
-        setLoading(false);
-      });
-  }, []); // Empty dependency array to run only once on mount
+        .then((response) => response.json())
+        .then((data) => {
+          setData(data);
+          setLoading(false);
+        })
+        .catch((error) => {
+          setError(error);
+          setLoading(false);
+        });
+    }; // Empty dependency array to run only once on mount
 
-  useEffect(() => {
-    const token = localStorage.getItem('token');
+    getUsers();
 
-    if (token) {
-      const decodedToken = atob(token.split('.')[1]);
-      const decodedUserId = JSON.parse(decodedToken);
+    const currentUser = () => {
+      const token = localStorage.getItem('token');
 
-      const currentUser = data.find((user) => user.id === decodedUserId.user_id);
-      setUser(currentUser);
-    }
-  }, [data]); // Dependency on data to run whenever data changes
+      if (token) {
+        const decodedToken = atob(token.split('.')[1]);
+        const decodedUserId = JSON.parse(decodedToken);
+
+        const currentUser = data.find((user) => user.id === decodedUserId.user_id);
+        setUser(currentUser);
+      }
+    }; // Dependency on data to run whenever data changes
+
+    currentUser();
+  } else {
+    window.location.href = '/login';
+  }
 
   if (loading) return <div>Loading...</div>;
   if (error) {
