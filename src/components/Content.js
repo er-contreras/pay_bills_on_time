@@ -1,6 +1,6 @@
 import '../styles/Content.css';
 import { useEffect, useState } from 'react';
-import TaskForm from './TaskForm';
+import BillForm from './BillForm';
 import Table from './Table';
 import LogOut from './LogOut';
 
@@ -79,7 +79,7 @@ function Content() {
 
       <LogOut />
 
-      <TaskForm onAddData={handleAddData} />
+      <BillForm onAddData={handleAddData} />
       <Table data={data} />
     </div>
   );
