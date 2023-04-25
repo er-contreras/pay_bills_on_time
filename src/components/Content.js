@@ -5,13 +5,13 @@ import Table from './Table';
 import LogOut from './LogOut';
 
 function Content() {
-  const [data, setData] = useState([]);
-  const [user, setUser] = useState(null);
+  const [users, setUsers] = useState([]);
+  const [currentUser, setCurrentUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   const handleAddData = (newData) => {
-    setData((prevData) => [...prevData, newData]);
+    setUsers((prevData) => [...prevData, newData]);
   };
 
   useEffect(() => {
@@ -20,8 +20,8 @@ function Content() {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
       })
         .then((response) => response.json())
-        .then((data) => {
-          setData(data);
+        .then((users) => {
+          setUsers(users);
           setLoading(false);
         })
         .catch((error) => {
@@ -40,10 +40,10 @@ function Content() {
       const decodedToken = atob(token.split('.')[1]);
       const decodedUserId = JSON.parse(decodedToken);
 
-      const currentUser = data.find((user) => user.id === decodedUserId.user_id);
-      setUser(currentUser);
+      const currentUser = users.find((user) => user.id === decodedUserId.user_id);
+      setCurrentUser(currentUser);
     }
-  }, [data]); // Dependency on data to run whenever data changes
+  }, [users]); // Dependency on data to run whenever data changes
 
   if (loading) return <div>Loading...</div>;
   if (error) {
@@ -58,19 +58,19 @@ function Content() {
 
   return (
     <div id="content">
-      {user ? (
+      {currentUser ? (
         <div>
           <h2>
             Welcome,
             {' '}
             {
-              user.name
+              currentUser.name
             }
             !
           </h2>
           <p>
             Email:
-            {user.email}
+            {currentUser.email}
           </p>
         </div>
       ) : (
@@ -80,7 +80,7 @@ function Content() {
       <LogOut />
 
       <BillForm onAddData={handleAddData} />
-      <Table data={data} />
+      <Table users={users} />
     </div>
   );
 }
