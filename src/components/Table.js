@@ -7,15 +7,15 @@ function Table(arg) {
       <table className="table">
         <thead className="thead">
           <tr>
-            <th>Task</th>
-            <th>Time</th>
+            <th>Bill</th>
+            <th>Date</th>
           </tr>
         </thead>
         <tbody>
           {data.map((row) => (
             <tr key={uuidv4()}>
-              <td>{row.task}</td>
-              <td>{row.time}</td>
+              <td>{row.bill}</td>
+              <td>{row.date}</td>
             </tr>
           ))}
         </tbody>

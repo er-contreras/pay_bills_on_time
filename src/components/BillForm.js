@@ -36,7 +36,7 @@ function BillForm(arg) {
         </label>
 
         <label htmlFor="date">
-          Add Time
+          Add Date
           <input type="text" id="time" name="date" value={date} onChange={(event) => setDate((event.target.value))} />
         </label>
 
