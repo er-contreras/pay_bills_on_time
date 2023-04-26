@@ -1,7 +1,19 @@
 import { v4 as uuidv4 } from 'uuid';
+import { useEffect, useState } from 'react';
 
-function Table(arg) {
-  const { users } = arg;
+const Table = () => {
+  const [bills, setBills] = useState([]);
+
+  useEffect(() => {
+    fetch('http://localhost:3000/bills', {
+      headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
+    })
+      .then((response) => response.json())
+      .then((bills) => {
+        setBills(bills);
+      });
+  }, []);
+
   return (
     <div className="table-content">
       <table className="table">
@@ -12,7 +24,7 @@ function Table(arg) {
           </tr>
         </thead>
         <tbody>
-          {users.map((row) => (
+          {bills.map((row) => (
             <tr key={uuidv4()}>
               <td>{row.name}</td>
               <td>{row.date}</td>
@@ -22,6 +34,6 @@ function Table(arg) {
       </table>
     </div>
   );
-}
+};
 
 export default Table;

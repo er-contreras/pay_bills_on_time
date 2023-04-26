@@ -10,9 +10,9 @@ function Content() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const handleAddData = (newData) => {
-    setUsers((prevData) => [...prevData, newData]);
-  };
+  // const handleAddData = (newData) => {
+  //   setUsers((prevData) => [...prevData, newData]);
+  // };
 
   useEffect(() => {
     if (localStorage.getItem('token')) {
@@ -79,8 +79,8 @@ function Content() {
 
       <LogOut />
 
-      <BillForm onAddData={handleAddData} />
-      <Table users={users} />
+      <BillForm />
+      <Table />
     </div>
   );
 }

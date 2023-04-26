@@ -1,10 +1,8 @@
 import { useState } from 'react';
 
-function BillForm(arg) {
+function BillForm() {
   const [name, setName] = useState('');
   const [date, setDate] = useState('');
-
-  const { onAddData } = arg;
 
   const handleNameChange = (event) => {
     setName(event.target.value);
@@ -14,21 +12,24 @@ function BillForm(arg) {
     setDate(event.target.value);
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-
+  const handleSubmit = () => {
     fetch('http://localhost:3000/bills', {
       method: 'POST',
       headers: {
+        Authorization: `Bearer ${localStorage.getItem('token')}`,
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
         bill: { name, date },
       }),
-    });
+    }).then((response) => response.json())
+      .then((bills) => {
+        console.log(bills);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
 
-    const newData = { name, date };
-    onAddData(newData);
     setName('');
     setDate('');
   };
