@@ -1,8 +1,9 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 function BillForm() {
   const [name, setName] = useState('');
   const [date, setDate] = useState('');
+  const [currentUser, setCurrentUser] = useState({});
 
   const handleNameChange = (event) => {
     setName(event.target.value);
@@ -12,6 +13,17 @@ function BillForm() {
     setDate(event.target.value);
   };
 
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+
+    if (token) {
+      const decodedToken = atob(token.split('.')[1]);
+      const decodedUserId = JSON.parse(decodedToken);
+
+      setCurrentUser(decodedUserId.user_id);
+    }
+  }, [currentUser]); // Dependency on data to run whenever data changes
+
   const handleSubmit = () => {
     fetch('http://localhost:3000/bills', {
       method: 'POST',
@@ -20,7 +32,7 @@ function BillForm() {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        bill: { name, date },
+        bill: { name, date, user_id: currentUser },
       }),
     }).then((response) => response.json())
       .then((bills) => {
