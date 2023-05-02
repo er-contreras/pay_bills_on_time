@@ -1,11 +1,12 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 function CreateUser() {
   const [name, setName] = useState('');
   const [username, setUsername] = useState((''));
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
   const handleNameChange = (event) => {
     setName(event.target.value);
@@ -38,8 +39,8 @@ function CreateUser() {
       }),
     })
       .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
+      .then(() => {
+        navigate('/login');
       })
       .catch((error) => {
         console.log(error);
