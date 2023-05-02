@@ -10,10 +10,6 @@ function Content() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  // const handleAddData = (newData) => {
-  //   setUsers((prevData) => [...prevData, newData]);
-  // };
-
   useEffect(() => {
     if (localStorage.getItem('token')) {
       fetch('http://localhost:3000/users', {
@@ -40,8 +36,8 @@ function Content() {
       const decodedToken = atob(token.split('.')[1]);
       const decodedUserId = JSON.parse(decodedToken);
 
-      const currentUser = users.find((user) => user.id === decodedUserId.user_id);
-      setCurrentUser(currentUser);
+      const validateCurrentUser = users.find((user) => user.id === decodedUserId.user_id);
+      setCurrentUser(validateCurrentUser);
     }
   }, [users]); // Dependency on data to run whenever data changes
 
