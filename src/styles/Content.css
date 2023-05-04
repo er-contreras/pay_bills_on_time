@@ -29,3 +29,10 @@
   padding: 1rem;
   border: 1px solid black;
 }
+
+.user-info {
+  font-size: 1.3rem;
+  min-width: 40%;
+  margin-bottom: 2rem;
+  text-align: center;
+}

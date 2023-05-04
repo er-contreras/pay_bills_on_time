@@ -54,26 +54,28 @@ function Content() {
 
   return (
     <div id="content">
-      {currentUser ? (
-        <div>
-          <h2>
-            Welcome,
-            {' '}
-            {
-              currentUser.name
-            }
-            !
-          </h2>
-          <p>
-            Email:
-            {currentUser.email}
-          </p>
-        </div>
-      ) : (
-        <h2>Please login first</h2>
-      )}
+      <div className="user-info">
+        {currentUser ? (
+          <div>
+            <h2>
+              Welcome,
+              {' '}
+              {
+                currentUser.name
+              }
+              !
+            </h2>
+            <p>
+              Email:
+              {currentUser.email}
+            </p>
+          </div>
+        ) : (
+          <h2>Please login first</h2>
+        )}
 
-      <LogOut />
+        <LogOut />
+      </div>
 
       <BillForm />
       <Table />
