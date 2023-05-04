@@ -2,6 +2,10 @@
 
 > This project was built with Ruby on Rails and ReactJs, it is an app that allow us to add bills and dates to pay them on time.
 
+## Video presentation
+
+https://user-images.githubusercontent.com/67211919/236295521-743acd83-d338-4751-9e7c-d990567c4f43.mov
+
 Link to backend repo: https://github.com/er-contreras/time_management_BEv2
 
 Additional description about the project and its features.
