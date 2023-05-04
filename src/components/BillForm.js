@@ -1,3 +1,4 @@
+import '../styles/BillForm.css';
 import { useEffect, useState } from 'react';
 
 function BillForm() {
@@ -48,7 +49,7 @@ function BillForm() {
 
   return (
     <div className="task-form-content">
-      <form className="task-form-content" onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit}>
         <label htmlFor="bill">
           Add Bill
           <input type="text" id="bill" name="bill" value={name} onChange={handleNameChange} />
