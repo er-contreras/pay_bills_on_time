@@ -1,3 +1,4 @@
+import '../styles/CreateUser.css';
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
@@ -47,35 +48,33 @@ function CreateUser() {
       });
   };
   return (
-    <>
+    <div className="create-user">
       <h1>Create new user</h1>
-      <form className="new-form" onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="name">
-            Name
-            <input type="name" id="name" value={name} onChange={handleNameChange} />
-          </label>
+      <form onSubmit={handleSubmit}>
+        <label htmlFor="name">
+          Name
+          <input type="name" id="name" value={name} onChange={handleNameChange} />
+        </label>
 
-          <label htmlFor="username">
-            Username
-            <input type="username" id="username" value={username} onChange={handleUsernameChange} />
-          </label>
+        <label htmlFor="username">
+          Username
+          <input type="username" id="username" value={username} onChange={handleUsernameChange} />
+        </label>
 
-          <label htmlFor="email">
-            Email
-            <input type="email" id="email" value={email} onChange={handleEmailChange} />
-          </label>
+        <label htmlFor="email">
+          Email
+          <input type="email" id="email" value={email} onChange={handleEmailChange} />
+        </label>
 
-          <label htmlFor="password">
-            Password
-            <input type="text" id="password" value={password} onChange={handlePasswordChange} />
-          </label>
+        <label htmlFor="password">
+          Password
+          <input type="text" id="password" value={password} onChange={handlePasswordChange} />
+        </label>
 
-          <button type="submit">Create new user</button>
-        </div>
+        <button type="submit">Create new user</button>
       </form>
       <Link to="/login">Back to Login</Link>
-    </>
+    </div>
   );
 }
 
