@@ -6,8 +6,7 @@ const LogOut = () => {
 
   return (
     <div>
-      <h1>Log Out</h1>
-      <button type="button" onClick={handleLogOut}>Log Out</button>
+      <button type="button" onClick={handleLogOut}>Sign Out</button>
     </div>
   );
 };
