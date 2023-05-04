@@ -60,7 +60,7 @@ function BillForm() {
           <input type="text" id="date" name="date" value={date} onChange={handleDateChange} />
         </label>
 
-        <button type="submit">Add Data</button>
+        <button type="submit">Submit</button>
       </form>
     </div>
   );
