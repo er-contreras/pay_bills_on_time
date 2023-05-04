@@ -1,1 +1,28 @@
+.login-form {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
 
+.login-form form {
+  display: flex;
+  flex-direction: column;
+  margin: 2rem 0;
+}
+
+.login-labels {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin: 0.5rem auto;
+  font-size: 1.5rem;
+  max-width: 30%;
+}
+
+.login-labels label {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin: 0.5rem 0;
+  font-size: 1.5rem;
+}

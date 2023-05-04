@@ -1,3 +1,4 @@
+import '../styles/LoginPage.css';
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
@@ -56,10 +57,10 @@ function LoginPage() {
   };
 
   return (
-    <div>
+    <div className="login-form">
       <h1>Please login first</h1>
-      <form className="login-form" onSubmit={handleSubmit}>
-        <div>
+      <form onSubmit={handleSubmit}>
+        <div className="login-labels">
           <label htmlFor="email">
             Email
             <input type="email" id="email" value={email} onChange={handleEmailChange} />
