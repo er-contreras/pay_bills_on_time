@@ -4,3 +4,27 @@
   align-items: center;
   flex-direction: column;
 }
+
+.table-content {
+  font-size: 2.5rem;
+}
+
+.table-content table {
+  border: 1px solid black;
+  margin: auto;
+  width: 75rem;
+}
+
+.table-content table thead {
+  background-color: #f2f2f2;
+}
+
+.table-content table thead tr th {
+  padding: 1rem;
+  border: 1px solid black;
+}
+
+.table-content table tbody tr td {
+  padding: 1rem;
+  border: 1px solid black;
+}

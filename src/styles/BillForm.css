@@ -1,3 +1,7 @@
+.task-form-content {
+  min-width: 20%;
+}
+
 .task-form-content form {
   display: flex;
   flex-direction: column;
