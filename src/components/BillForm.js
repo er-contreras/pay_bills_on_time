@@ -1,32 +1,34 @@
 import '../styles/BillForm.css';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import HandleExpiredToken from './expired_token';
+
+const getToken = () => {
+  const token = localStorage.getItem('token');
+
+  if (token) {
+    const decodedToken = atob(token.split('.')[1]);
+    const decodedUserId = JSON.parse(decodedToken);
+    return decodedUserId.user_id;
+  }
+  return null;
+};
 
 function BillForm() {
   HandleExpiredToken();
 
   const [name, setName] = useState('');
   const [date, setDate] = useState('');
-  const [currentUser, setCurrentUser] = useState({});
+  const currentUser = getToken();
 
   const handleNameChange = (event) => {
-    setName(event.target.value);
+    const { value } = event.target;
+    setName(value);
   };
 
   const handleDateChange = (event) => {
-    setDate(event.target.value);
+    const { value } = event.target;
+    setDate(value);
   };
-
-  useEffect(() => {
-    const token = localStorage.getItem('token');
-
-    if (token) {
-      const decodedToken = atob(token.split('.')[1]);
-      const decodedUserId = JSON.parse(decodedToken);
-
-      setCurrentUser(decodedUserId.user_id);
-    }
-  }, [currentUser]); // Dependency on data to run whenever data changes
 
   const handleSubmit = () => {
     fetch('http://localhost:3000/bills', {
