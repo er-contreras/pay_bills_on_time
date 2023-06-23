@@ -45,6 +45,22 @@ const Table = () => {
       });
   }, []);
 
+  const handleDelete = async (billId) => {
+    try {
+      const response = await fetch(`http://localhost:3000/bills/${billId}`, {
+        method: 'DELETE',
+        headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
+      });
+      if (response.ok) {
+        setBills((prevBills) => prevBills.filter((bill) => bill.id !== billId));
+      } else {
+        throw new Error('Something went wrong');
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <div className="table-content">
       <table className="table">
@@ -59,6 +75,9 @@ const Table = () => {
             <tr key={uuidv4()}>
               <td>{row.name}</td>
               <td>{row.date}</td>
+              <td>
+                <button type="submit" onClick={() => handleDelete(row.id)}>Destroy</button>
+              </td>
             </tr>
           ))}
         </tbody>
