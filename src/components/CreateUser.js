@@ -1,10 +1,10 @@
-import '../styles/CreateUser.css';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import '../styles/CreateUser.css';
 
 function CreateUser() {
   const [name, setName] = useState('');
-  const [username, setUsername] = useState((''));
+  const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
@@ -25,40 +25,47 @@ function CreateUser() {
     setPassword(event.target.value);
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
-    fetch('http://localhost:3000/users', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        user: {
-          name, username, email, password,
+    try {
+      const response = await fetch('http://localhost:3000/users', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
         },
-      }),
-    })
-      .then((response) => response.json())
-      .then(() => {
-        navigate('/login');
-      })
-      .catch((error) => {
-        console.log(error);
+        body: JSON.stringify({
+          user: {
+            name,
+            username,
+            email,
+            password,
+          },
+        }),
       });
+
+      if (response.ok) {
+        navigate('/login');
+      } else {
+        throw new Error('Failed to create user');
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
+
   return (
     <div className="create-user">
       <h1>Create new user</h1>
       <form onSubmit={handleSubmit}>
         <label htmlFor="name">
           Name
-          <input type="name" id="name" value={name} onChange={handleNameChange} />
+          <input type="text" id="name" value={name} onChange={handleNameChange} />
         </label>
 
         <label htmlFor="username">
           Username
-          <input type="username" id="username" value={username} onChange={handleUsernameChange} />
+          <input type="text" id="username" value={username} onChange={handleUsernameChange} />
         </label>
 
         <label htmlFor="email">
@@ -68,7 +75,7 @@ function CreateUser() {
 
         <label htmlFor="password">
           Password
-          <input type="text" id="password" value={password} onChange={handlePasswordChange} />
+          <input type="password" id="password" value={password} onChange={handlePasswordChange} />
         </label>
 
         <button type="submit">Create new user</button>
