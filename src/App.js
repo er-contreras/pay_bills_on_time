@@ -17,6 +17,7 @@ function App() {
           <Route path="/new" element={<CreateUser />} />
           <Route path="/users" element={<Users />} />
         </Routes>
+
       </Router>
     </>
   );

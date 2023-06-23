@@ -1,7 +1,10 @@
 import '../styles/BillForm.css';
 import { useEffect, useState } from 'react';
+import HandleExpiredToken from './expired_token';
 
 function BillForm() {
+  HandleExpiredToken();
+
   const [name, setName] = useState('');
   const [date, setDate] = useState('');
   const [currentUser, setCurrentUser] = useState({});
