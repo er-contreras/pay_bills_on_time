@@ -5,6 +5,7 @@ import Content from './components/Content';
 import LoginPage from './components/LoginPage';
 import CreateUser from './components/CreateUser';
 import Users from './components/Users';
+import EditBill from './components/EditBill';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="/login" element={<LoginPage />} />
           <Route path="/new" element={<CreateUser />} />
           <Route path="/users" element={<Users />} />
+          <Route path="/bills/:id/edit" element={<EditBill />} />
         </Routes>
 
       </Router>
