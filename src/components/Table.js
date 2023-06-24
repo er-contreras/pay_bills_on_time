@@ -1,10 +1,12 @@
 import { v4 as uuidv4 } from 'uuid';
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Table = () => {
   const [bills, setBills] = useState([]);
   const [users, setUsers] = useState([]);
   const [currentUser, setCurrentUser] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (localStorage.getItem('token')) {
@@ -68,6 +70,7 @@ const Table = () => {
           <tr>
             <th>Name</th>
             <th>Date</th>
+            <th>Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -77,6 +80,7 @@ const Table = () => {
               <td>{row.date}</td>
               <td>
                 <button type="submit" onClick={() => handleDelete(row.id)}>Destroy</button>
+                <button type="button" onClick={() => navigate(`/bills/${row.id}/edit`)}>Edit</button>
               </td>
             </tr>
           ))}
