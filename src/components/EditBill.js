@@ -1,4 +1,4 @@
-import { Link, useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useState } from 'react';
 
 const EditBill = () => {
@@ -55,7 +55,7 @@ const EditBill = () => {
         <button type="submit">Submit</button>
       </form>
 
-      <Link to="/">Back to Bills</Link>
+      <button type="button" onClick={() => navigate('/')}>Back to content</button>
     </div>
   );
 };
