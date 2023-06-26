@@ -20,8 +20,6 @@ const Table = () => {
         .catch((error) => {
           console.log(error);
         });
-    } else {
-      navigate('/login');
     }
   }, []);
 
