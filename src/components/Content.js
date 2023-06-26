@@ -1,5 +1,6 @@
 import '../styles/Content.css';
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import BillForm from './BillForm';
 import Table from './Table';
 import LogOut from './LogOut';
@@ -9,6 +10,7 @@ function Content() {
   const [currentUser, setCurrentUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (localStorage.getItem('token')) {
@@ -25,7 +27,7 @@ function Content() {
           setLoading(false);
         });
     } else {
-      window.location.href = '/login';
+      navigate('/login');
     }
   }, []); // Empty dependency array to run only once on mount
 

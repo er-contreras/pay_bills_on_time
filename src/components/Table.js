@@ -21,7 +21,7 @@ const Table = () => {
           console.log(error);
         });
     } else {
-      window.location.href = '/login';
+      navigate('/login');
     }
   }, []);
 
