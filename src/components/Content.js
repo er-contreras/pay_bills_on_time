@@ -4,7 +4,7 @@ import BillForm from './BillForm';
 import Table from './Table';
 import LogOut from './LogOut';
 
-function Content() {
+const Content = () => {
   const [users, setUsers] = useState([]);
   const [currentUser, setCurrentUser] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -79,6 +79,6 @@ function Content() {
       <Table />
     </div>
   );
-}
+};
 
 export default Content;

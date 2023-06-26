@@ -2,7 +2,7 @@ import '../styles/LoginPage.css';
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
-function LoginPage() {
+const LoginPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -79,6 +79,6 @@ function LoginPage() {
       <Link to="/new">Create Account</Link>
     </div>
   );
-}
+};
 
 export default LoginPage;

@@ -7,22 +7,20 @@ import CreateUser from './components/CreateUser';
 import Users from './components/Users';
 import EditBill from './components/EditBill';
 
-function App() {
-  return (
-    <>
-      <Header />
-      <Router>
-        <Routes>
-          <Route exact path="/" element={<Content />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/new" element={<CreateUser />} />
-          <Route path="/users" element={<Users />} />
-          <Route path="/bills/:id/edit" element={<EditBill />} />
-        </Routes>
+const App = () => (
+  <>
+    <Header />
+    <Router>
+      <Routes>
+        <Route exact path="/" element={<Content />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/new" element={<CreateUser />} />
+        <Route path="/users" element={<Users />} />
+        <Route path="/bills/:id/edit" element={<EditBill />} />
+      </Routes>
 
-      </Router>
-    </>
-  );
-}
+    </Router>
+  </>
+);
 
 export default App;

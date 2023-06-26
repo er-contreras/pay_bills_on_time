@@ -13,7 +13,7 @@ const getToken = () => {
   return null;
 };
 
-function BillForm() {
+const BillForm = () => {
   HandleExpiredToken();
 
   const [name, setName] = useState('');
@@ -69,6 +69,6 @@ function BillForm() {
       </form>
     </div>
   );
-}
+};
 
 export default BillForm;

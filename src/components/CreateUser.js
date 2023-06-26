@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import '../styles/CreateUser.css';
 
-function CreateUser() {
+const CreateUser = () => {
   const [name, setName] = useState('');
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
@@ -83,6 +83,6 @@ function CreateUser() {
       <Link to="/login">Back to Login</Link>
     </div>
   );
-}
+};
 
 export default CreateUser;
