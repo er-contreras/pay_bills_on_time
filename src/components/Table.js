@@ -1,6 +1,7 @@
 import { v4 as uuidv4 } from 'uuid';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import FetchUser from './FetchUser';
 
 const Table = () => {
   const [bills, setBills] = useState([]);
@@ -8,20 +9,7 @@ const Table = () => {
   const [currentUser, setCurrentUser] = useState(null);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    if (localStorage.getItem('token')) {
-      fetch('http://localhost:3000/users', {
-        headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
-      })
-        .then((response) => response.json())
-        .then((users) => {
-          setUsers(users);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    }
-  }, []);
+  FetchUser({ setUsers });
 
   useEffect(() => {
     const token = localStorage.getItem('token');

@@ -1,25 +1,13 @@
 import '../styles/Content.css';
 import { useEffect, useState } from 'react';
 import LogOut from './LogOut';
+import FetchUser from './FetchUser';
 
 const CurrentUser = () => {
   const [users, setUsers] = useState([]);
   const [currentUser, setCurrentUser] = useState(null);
 
-  useEffect(() => {
-    if (localStorage.getItem('token')) {
-      fetch('http://localhost:3000/users', {
-        headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
-      })
-        .then((response) => response.json())
-        .then((users) => {
-          setUsers(users);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    }
-  }, []);
+  FetchUser({ setUsers });
 
   useEffect(() => {
     const token = localStorage.getItem('token');
