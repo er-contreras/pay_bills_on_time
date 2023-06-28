@@ -13,7 +13,8 @@ const getToken = () => {
   return null;
 };
 
-const BillForm = () => {
+// eslint-disable-next-line react/prop-types
+const BillForm = ({ onBillAdded }) => {
   HandleExpiredToken();
 
   const [name, setName] = useState('');
@@ -30,7 +31,9 @@ const BillForm = () => {
     setDate(value);
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
     fetch('http://localhost:3000/bills', {
       method: 'POST',
       headers: {
@@ -41,8 +44,8 @@ const BillForm = () => {
         bill: { name, date, user_id: currentUser },
       }),
     }).then((response) => response.json())
-      .then((bills) => {
-        console.log(bills);
+      .then((newBill) => {
+        onBillAdded(newBill);
       })
       .catch((error) => {
         console.log(error);
