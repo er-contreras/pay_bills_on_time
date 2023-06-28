@@ -3,8 +3,9 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import FetchUser from './FetchUser';
 
-const Table = () => {
-  const [bills, setBills] = useState([]);
+// eslint-disable-next-line react/prop-types
+const Table = ({ bills, handleDelete }) => {
+  // const [bills, setBills] = useState([]);
   const [users, setUsers] = useState([]);
   const [currentUser, setCurrentUser] = useState(null);
   const navigate = useNavigate();
@@ -23,32 +24,6 @@ const Table = () => {
     }
   }, [users]);
 
-  useEffect(() => {
-    fetch('http://localhost:3000/bills', {
-      headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
-    })
-      .then((response) => response.json())
-      .then((bills) => {
-        setBills(bills);
-      });
-  }, []);
-
-  const handleDelete = async (billId) => {
-    try {
-      const response = await fetch(`http://localhost:3000/bills/${billId}`, {
-        method: 'DELETE',
-        headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
-      });
-      if (response.ok) {
-        setBills((prevBills) => prevBills.filter((bill) => bill.id !== billId));
-      } else {
-        throw new Error('Something went wrong');
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
   return (
     <div className="table-content">
       <table className="table">
@@ -60,6 +35,7 @@ const Table = () => {
           </tr>
         </thead>
         <tbody>
+          {/* eslint-disable-next-line react/prop-types */}
           {bills.filter((bill) => bill.user_id === currentUser?.id).map((row) => (
             <tr key={uuidv4()}>
               <td>{row.name}</td>
