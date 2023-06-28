@@ -3,9 +3,9 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import FetchUser from './FetchUser';
 
-// eslint-disable-next-line react/prop-types
-const Table = ({ bills, handleDelete }) => {
-  // const [bills, setBills] = useState([]);
+const Table = (props) => {
+  // eslint-disable-next-line react/prop-types
+  const { bills, handleDelete } = props;
   const [users, setUsers] = useState([]);
   const [currentUser, setCurrentUser] = useState(null);
   const navigate = useNavigate();
