@@ -16,7 +16,7 @@
   text-align: center;
   margin: 0.5rem auto;
   font-size: 1.5rem;
-  max-width: 30%;
+  min-width: 12%;
 }
 
 .login-labels label {
@@ -25,4 +25,9 @@
   text-align: center;
   margin: 0.5rem 0;
   font-size: 1.5rem;
+}
+
+.login-labels input {
+  text-align: center;
+  padding: 0.2rem;
 }
