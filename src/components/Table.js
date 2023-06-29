@@ -1,6 +1,7 @@
 import { v4 as uuidv4 } from 'uuid';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { FaTrash, FaEdit, FaBell } from 'react-icons/fa';
 import FetchUser from './FetchUser';
 
 const Table = (props) => {
@@ -41,9 +42,12 @@ const Table = (props) => {
               <td>{row.name}</td>
               <td>{row.date}</td>
               <td className="tableButtons">
-                <button type="submit" onClick={() => handleDelete(row.id)}>D</button>
-                <button type="button" onClick={() => navigate(`/bills/${row.id}/edit`)}>E</button>
-                <button type="button">A</button>
+                {/* eslint-disable-next-line jsx-a11y/control-has-associated-label */}
+                <button type="submit" onClick={() => handleDelete(row.id)}><FaTrash /></button>
+                {/* eslint-disable-next-line jsx-a11y/control-has-associated-label */}
+                <button type="button" onClick={() => navigate(`/bills/${row.id}/edit`)}><FaEdit /></button>
+                {/* eslint-disable-next-line jsx-a11y/control-has-associated-label */}
+                <button type="button"><FaBell /></button>
               </td>
             </tr>
           ))}
