@@ -1,5 +1,6 @@
 import '../styles/BillForm.css';
 import { useState } from 'react';
+import PropTypes from 'prop-types';
 import HandleExpiredToken from './expired_token';
 
 const getToken = () => {
@@ -13,7 +14,6 @@ const getToken = () => {
   return null;
 };
 
-// eslint-disable-next-line react/prop-types
 const BillForm = ({ onBillAdded }) => {
   HandleExpiredToken();
 
@@ -72,6 +72,10 @@ const BillForm = ({ onBillAdded }) => {
       </form>
     </div>
   );
+};
+
+BillForm.propTypes = {
+  onBillAdded: PropTypes.func.isRequired,
 };
 
 export default BillForm;
