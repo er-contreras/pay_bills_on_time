@@ -40,9 +40,10 @@ const Table = (props) => {
             <tr key={uuidv4()}>
               <td>{row.name}</td>
               <td>{row.date}</td>
-              <td>
-                <button type="submit" onClick={() => handleDelete(row.id)}>Destroy</button>
-                <button type="button" onClick={() => navigate(`/bills/${row.id}/edit`)}>Edit</button>
+              <td className="tableButtons">
+                <button type="submit" onClick={() => handleDelete(row.id)}>D</button>
+                <button type="button" onClick={() => navigate(`/bills/${row.id}/edit`)}>E</button>
+                <button type="button">A</button>
               </td>
             </tr>
           ))}

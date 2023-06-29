@@ -30,6 +30,11 @@
   border: 1px solid black;
 }
 
+.tableButtons {
+  display: flex;
+  justify-content: center;
+}
+
 .user-info {
   font-size: 1.3rem;
   min-width: 40%;
