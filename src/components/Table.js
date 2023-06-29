@@ -42,12 +42,9 @@ const Table = (props) => {
               <td>{row.name}</td>
               <td>{row.date}</td>
               <td className="tableButtons">
-                {/* eslint-disable-next-line jsx-a11y/control-has-associated-label */}
-                <button type="submit" onClick={() => handleDelete(row.id)}><FaTrash /></button>
-                {/* eslint-disable-next-line jsx-a11y/control-has-associated-label */}
-                <button type="button" onClick={() => navigate(`/bills/${row.id}/edit`)}><FaEdit /></button>
-                {/* eslint-disable-next-line jsx-a11y/control-has-associated-label */}
-                <button type="button"><FaBell /></button>
+                <button type="submit" onClick={() => handleDelete(row.id)} aria-label="Delete"><FaTrash /></button>
+                <button type="button" onClick={() => navigate(`/bills/${row.id}/edit`)} aria-label="Edit"><FaEdit /></button>
+                <button type="button" aria-label="Notification"><FaBell /></button>
               </td>
             </tr>
           ))}
