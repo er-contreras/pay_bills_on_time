@@ -1,3 +1,4 @@
+import '../styles/editBill.css';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useState } from 'react';
 
@@ -39,7 +40,7 @@ const EditBill = () => {
   };
 
   return (
-    <div>
+    <div className="editBillContainer">
       <h1>Edit Bill</h1>
       <form onSubmit={handleSubmit}>
         <label htmlFor="name">
@@ -55,7 +56,7 @@ const EditBill = () => {
         <button type="submit">Submit</button>
       </form>
 
-      <button type="button" onClick={() => navigate('/')}>Back to content</button>
+      <button className="editBackButton" type="button" onClick={() => navigate('/')}>Back to content</button>
     </div>
   );
 };

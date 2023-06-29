@@ -1,0 +1,33 @@
+.editBillContainer {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  max-width: 30%;
+  margin: 0 auto;
+}
+
+.editBillContainer form {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  min-width: 30rem;
+}
+
+.editBillContainer form label {
+  display: flex;
+  flex-direction: column;
+  margin: 10px 0 0 0;
+}
+
+.editBillContainer form input {
+  padding: 0.1rem;
+}
+
+.editBillContainer form button {
+  margin: 10px 0 10px 0;
+}
+
+.editBackButton {
+  margin: 0 auto;
+  max-width: 30%;
+}
