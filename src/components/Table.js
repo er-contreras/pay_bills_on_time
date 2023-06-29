@@ -2,10 +2,10 @@ import { v4 as uuidv4 } from 'uuid';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FaTrash, FaEdit, FaBell } from 'react-icons/fa';
+import PropTypes from 'prop-types';
 import FetchUser from './FetchUser';
 
 const Table = (props) => {
-  // eslint-disable-next-line react/prop-types
   const { bills, handleDelete } = props;
   const [users, setUsers] = useState([]);
   const [currentUser, setCurrentUser] = useState(null);
@@ -36,7 +36,6 @@ const Table = (props) => {
           </tr>
         </thead>
         <tbody>
-          {/* eslint-disable-next-line react/prop-types */}
           {bills.filter((bill) => bill.user_id === currentUser?.id).map((row) => (
             <tr key={uuidv4()}>
               <td>{row.name}</td>
@@ -52,6 +51,21 @@ const Table = (props) => {
       </table>
     </div>
   );
+};
+
+Table.propTypes = {
+  bills: PropTypes.arrayOf(
+    PropTypes.shape({
+      user_id: PropTypes.string,
+      name: PropTypes.string,
+      date: PropTypes.string,
+    }),
+  ),
+  handleDelete: PropTypes.func.isRequired,
+};
+
+Table.defaultProps = {
+  bills: [],
 };
 
 export default Table;

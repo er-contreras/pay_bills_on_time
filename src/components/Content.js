@@ -1,7 +1,6 @@
 import '../styles/Content.css';
 import { useEffect, useState } from 'react';
 import BillForm from './BillForm';
-// eslint-disable-next-line import/no-named-as-default
 import Table from './Table';
 import CurrentUser from './CurrentUser';
 
