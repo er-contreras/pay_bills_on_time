@@ -56,7 +56,7 @@ const Table = (props) => {
 Table.propTypes = {
   bills: PropTypes.arrayOf(
     PropTypes.shape({
-      user_id: PropTypes.string,
+      user_id: PropTypes.number,
       name: PropTypes.string,
       date: PropTypes.string,
     }),
