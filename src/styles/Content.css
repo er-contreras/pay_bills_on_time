@@ -48,6 +48,15 @@
   text-align: center;
 }
 
+.user-info button {
+  font-size: 1.5rem;
+  padding: 0.4rem;
+  margin: 0.5rem 0;
+  background-color: #dcdcdc;
+  border: none;
+  cursor: pointer;
+}
+
 /* Media Queries */
 @media screen and (max-width: 1000px) {
   .table-content {
