@@ -42,3 +42,16 @@
   padding: 0.5rem;
   margin: 2rem 0;
 }
+
+/* Media Queries */
+@media screen and (max-width: 1000px) {
+  .login-labels {
+    min-width: 55%;
+  }
+}
+
+@media screen and (max-width: 475px) {
+  .login-labels {
+    min-width: 100%;
+  }
+}

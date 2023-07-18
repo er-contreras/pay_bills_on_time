@@ -34,3 +34,16 @@
   font-size: 2rem;
   margin: 0.5rem 0;
 }
+
+/* Media Queries */
+@media screen and (max-width: 1000px) {
+  .create-user form {
+    min-width: 55%;
+  }
+}
+
+@media screen and (max-width: 475px) {
+  .create-user form {
+    min-width: 100%;
+  }
+}
