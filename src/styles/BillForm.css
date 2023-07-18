@@ -1,5 +1,6 @@
 .task-form-content {
-  min-width: 20%;
+  min-width: 32%;
+  margin-bottom: 5rem;
 }
 
 .task-form-content form {
