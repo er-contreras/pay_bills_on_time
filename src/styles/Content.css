@@ -34,12 +34,28 @@
   border: 1px solid black;
 }
 
+.user-info button {
+  font-size: 1.5rem;
+  padding: 0.4rem;
+  margin: 0.5rem 0;
+  background-color: #fff;
+  border-radius: 0.3rem;
+  border: none;
+  cursor: pointer;
+  color: rgb(178, 178, 178);
+}
+
 .table-content table tbody tr td button {
   cursor: pointer;
   margin: 1px;
   width: 2.3rem;
   height: 2.3rem;
   border: 1px solid black;
+}
+
+.user-info button:hover {
+  background-color: rgba(255, 0, 0, 0.53);
+  color: rgba(255, 255, 255, 0.64);
 }
 
 .table-content table tbody tr td button:hover {
@@ -73,22 +89,6 @@
   margin: 0.1rem 0;
   color: rgba(242, 242, 242, 0.47);
   font-size: 1.5rem;
-}
-
-.user-info button {
-  font-size: 1.5rem;
-  padding: 0.4rem;
-  margin: 0.5rem 0;
-  background-color: #fff;
-  border-radius: 0.3rem;
-  border: none;
-  cursor: pointer;
-  color: rgb(178, 178, 178);
-}
-
-.user-info button:hover {
-  background-color: rgba(255, 0, 0, 0.53);
-  color: rgba(255, 255, 255, 0.64);
 }
 
 /* Media Queries */
