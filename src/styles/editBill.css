@@ -3,7 +3,13 @@
   flex-direction: column;
   text-align: center;
   max-width: 30%;
-  margin: 0 auto;
+  margin: 5rem auto;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.editBillContainer h2 {
+  margin: 4rem auto;
+  font-size: 3rem;
 }
 
 .editBillContainer form {
@@ -13,14 +19,19 @@
   min-width: 30rem;
 }
 
+.editBillContainer button {
+  padding: 0.4rem;
+}
+
 .editBillContainer form label {
   display: flex;
   flex-direction: column;
   margin: 10px 0 0 0;
+  font-size: 1.5rem;
 }
 
 .editBillContainer form input {
-  padding: 0.1rem;
+  padding: 0.5rem;
 }
 
 .editBillContainer form button {
@@ -28,6 +39,16 @@
 }
 
 .editBackButton {
-  margin: 0 auto;
-  max-width: 30%;
+  margin: 2rem auto;
+  max-width: 40%;
+  padding: 0.4rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.6rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.editBackButton:hover {
+  color: rgb(255, 255, 255);
 }
