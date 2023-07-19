@@ -34,6 +34,20 @@
   border: 1px solid black;
 }
 
+.table-content table tbody tr td button {
+  cursor: pointer;
+  margin: 1px;
+  width: 2.3rem;
+  height: 2.3rem;
+  border: 1px solid black;
+}
+
+.table-content table tbody tr td button:hover {
+  cursor: pointer;
+  background-color: rgba(15, 197, 176, 0.29);
+  margin: 0 auto;
+}
+
 .tableButtons {
   display: flex;
   justify-content: center;
