@@ -41,7 +41,7 @@ const EditBill = () => {
 
   return (
     <div className="editBillContainer">
-      <h1>Edit Bill</h1>
+      <h2>Edit Bill</h2>
       <form onSubmit={handleSubmit}>
         <label htmlFor="name">
           Name
