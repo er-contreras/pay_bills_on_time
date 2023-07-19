@@ -25,6 +25,8 @@
 .table-content table thead tr th {
   padding: 1rem;
   border: 1px solid black;
+  background-color: rgba(255, 0, 0, 0.53);
+  color: rgba(255, 255, 255, 0.64);
 }
 
 .table-content table tbody tr td {
@@ -44,8 +46,19 @@
   font-size: 1.3rem;
   min-width: 40%;
   height: 7rem;
-  margin-bottom: 2rem;
+  margin-bottom: 5rem;
   text-align: center;
+}
+
+.user-info h2 {
+  color: #e1e1e1;
+  font-size: 3.5rem;
+}
+
+.user-info p {
+  margin: 0.1rem 0;
+  color: rgba(242, 242, 242, 0.47);
+  font-size: 1.5rem;
 }
 
 .user-info button {
@@ -53,8 +66,10 @@
   padding: 0.4rem;
   margin: 0.5rem 0;
   background-color: #dcdcdc;
+  border-radius: 1rem;
   border: none;
   cursor: pointer;
+  color: rgba(133, 133, 133, 0.75);
 }
 
 /* Media Queries */
