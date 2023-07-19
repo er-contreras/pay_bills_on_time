@@ -1,6 +1,7 @@
 .task-form-content {
   min-width: 32%;
   margin-bottom: 5rem;
+  color: rgba(255, 255, 255, 0.71);
 }
 
 .task-form-content form {

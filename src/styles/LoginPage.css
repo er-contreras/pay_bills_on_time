@@ -3,6 +3,7 @@
   flex-direction: column;
   text-align: center;
   margin-top: 13rem;
+  color: rgba(255, 255, 255, 0.73);
 }
 
 .login-form form {
