@@ -25,6 +25,27 @@ const Table = (props) => {
     }
   }, [users]);
 
+  const handleNotification = (name, id, date) => {
+    fetch('http://localhost:3000/bill_notification', {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('token')}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        bill_notification_data: {
+          name, id, date,
+        },
+      }),
+    }).then((response) => response.json())
+      .then((successNotification) => {
+        console.log(successNotification);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
   return (
     <div className="table-content">
       <table className="table">
@@ -43,7 +64,7 @@ const Table = (props) => {
               <td className="tableButtons">
                 <button type="submit" onClick={() => handleDelete(row.id)} aria-label="Delete"><FaTrash /></button>
                 <button type="button" onClick={() => navigate(`/bills/${row.id}/edit`)} aria-label="Edit"><FaEdit /></button>
-                <button type="button" aria-label="Notification"><FaBell /></button>
+                <button type="button" onClick={() => handleNotification(row.name, row.id, row.date)} aria-label="Notification"><FaBell /></button>
               </td>
             </tr>
           ))}
