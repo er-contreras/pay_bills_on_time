@@ -18,7 +18,7 @@ Additional description of the project and its features.
 ### Install
 - In the terminal go to the folder you are going to work and write the next.
 ```
-git clone https://github.com/er-contreras/time-management_FE.git
+git clone https://github.com/er-contreras/pay_bills_on_time.git
 ```
 ### Usage
 - Don't forget to create a branch to start working on the project.
