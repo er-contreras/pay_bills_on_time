@@ -34,7 +34,6 @@ const CurrentUser = () => {
             !
           </h2>
           <p>
-            Email:
             {currentUser.email}
           </p>
         </div>
