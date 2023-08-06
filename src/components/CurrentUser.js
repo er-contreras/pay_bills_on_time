@@ -1,25 +1,18 @@
 import '../styles/Content.css';
 import { useEffect, useState } from 'react';
 import LogOut from './LogOut';
-import FetchUser from './FetchUser';
 
 const CurrentUser = () => {
-  const [users, setUsers] = useState([]);
   const [currentUser, setCurrentUser] = useState(null);
 
-  FetchUser({ setUsers });
-
   useEffect(() => {
-    const token = localStorage.getItem('token');
+    const user = localStorage.getItem('user');
+    const parsedUser = JSON.parse(user);
 
-    if (token) {
-      const decodedToken = atob(token.split('.')[1]);
-      const decodedUserId = JSON.parse(decodedToken);
-
-      const validateCurrentUser = users.find((user) => user.id === decodedUserId.user_id);
-      setCurrentUser(validateCurrentUser);
+    if (user) {
+      setCurrentUser(parsedUser);
     }
-  }, [users]);
+  }, []);
 
   return (
     <div className="user-info">
@@ -28,9 +21,7 @@ const CurrentUser = () => {
           <h2>
             Welcome,
             {' '}
-            {
-              currentUser.name
-            }
+            {currentUser.name}
             !
           </h2>
           <p>
