@@ -39,14 +39,14 @@ const Table = (props) => {
           </tr>
         </thead>
         <tbody>
-          {bills.filter((bill) => bill.user_id === currentUser?.id).map((row) => (
+          {bills.map((bill) => (
             <tr key={uuidv4()}>
-              <td>{row.name}</td>
-              <td>{row.date}</td>
+              <td>{bill.name}</td>
+              <td>{bill.date}</td>
               <td className="tableButtons">
-                <button type="submit" onClick={() => handleDelete(row.id)} aria-label="Delete"><FaTrash /></button>
-                <button type="button" onClick={() => navigate(`/bills/${row.id}/edit`)} aria-label="Edit"><FaEdit /></button>
-                <button type="button" onClick={() => handleNotification(row.name, row.id, row.date)} aria-label="Notification"><FaBell /></button>
+                <button type="submit" onClick={() => handleDelete(bill.id)} aria-label="Delete"><FaTrash /></button>
+                <button type="button" onClick={() => navigate(`/bills/${bill.id}/edit`)} aria-label="Edit"><FaEdit /></button>
+                <button type="button" onClick={() => handleNotification(bill.name, bill.id, bill.date)} aria-label="Notification"><FaBell /></button>
               </td>
             </tr>
           ))}
