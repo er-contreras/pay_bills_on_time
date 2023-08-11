@@ -21,12 +21,9 @@ const CurrentUser = () => {
           <h2>
             Welcome,
             {' '}
-            {currentUser.name}
+            {currentUser.username}
             !
           </h2>
-          <p>
-            {currentUser.email}
-          </p>
         </div>
       ) : (
         <h2>Please login first</h2>
