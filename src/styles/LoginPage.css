@@ -2,8 +2,8 @@
   display: flex;
   flex-direction: column;
   text-align: center;
-  margin-top: 13rem;
   color: rgba(255, 255, 255, 0.73);
+  padding: 13rem 0;
 }
 
 .login-form form {
