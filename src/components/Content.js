@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import BillForm from './BillForm';
 import Table from './Table';
+import Header from './Header';
 
 const Content = () => {
   const [bills, setBills] = useState([]);
@@ -47,6 +48,7 @@ const Content = () => {
 
   return (
     <div id="content">
+      <Header />
       <BillForm onBillAdded={handleBillAdded} />
       <Table bills={bills} handleDelete={handleDelete} />
     </div>
