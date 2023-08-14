@@ -71,18 +71,18 @@
 
 .user-info {
   display: flex;
-  flex-direction: column;
   justify-content: space-between;
   font-size: 1.3rem;
-  text-align: center;
-  padding: 2rem 0;
   background-color: rgba(255, 255, 255, 0.09);
+  align-items: center;
+}
 
+.user-info div {
+  padding: 1rem;
 }
 
 .user-info h2 {
   color: #e1e1e1;
-  font-size: 3.5rem;
 }
 
 .user-info p {
