@@ -8,8 +8,6 @@ const Table = (props) => {
   const navigate = useNavigate();
   const userEmail = JSON.parse(localStorage.getItem('user')).email;
 
-  console.log(userEmail);
-
   const handleNotification = (name, id, date) => {
     fetch('http://localhost:3000/bill_notification', {
       method: 'POST',
