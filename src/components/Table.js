@@ -35,7 +35,7 @@ const Table = (props) => {
         <thead className="thead">
           <tr>
             <th>Name</th>
-            <th>Date</th>
+            <th>Deadline</th>
             <th>Actions</th>
           </tr>
         </thead>

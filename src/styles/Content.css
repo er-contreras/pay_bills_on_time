@@ -30,6 +30,7 @@
 }
 
 .table-content table tbody tr td {
+  text-align: center;
   padding: 1rem;
 }
 
