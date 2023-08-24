@@ -30,6 +30,7 @@ const Header = () => {
             Welcome
             {' '}
             {currentUser.username}
+            !
             {' '}
             <button type="button" onClick={handleLogout}>Logout</button>
           </div>
