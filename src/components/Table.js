@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 const Table = (props) => {
   const { bills, handleDelete } = props;
   const navigate = useNavigate();
-  const userEmail = JSON.parse(localStorage.getItem('user')).email;
+  const userEmail = JSON.parse(localStorage.getItem('user'))?.email;
 
   const handleNotification = (name, id, date) => {
     fetch('http://localhost:3000/bill_notification', {
