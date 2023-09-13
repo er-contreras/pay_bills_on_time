@@ -45,9 +45,9 @@ const Table = (props) => {
               <td>{bill.name}</td>
               <td>{bill.date}</td>
               <td className="tableButtons">
-                <button type="submit" onClick={() => handleDelete(bill.id)} aria-label="Delete"><FaTrash /></button>
-                <button type="button" onClick={() => navigate(`/bills/${bill.id}/edit`)} aria-label="Edit"><FaEdit /></button>
-                <button type="button" onClick={() => handleNotification(bill.name, bill.id, bill.date)} aria-label="Notification"><FaBell /></button>
+                <button className="delete-button" type="submit" onClick={() => handleDelete(bill.id)} aria-label="Delete"><FaTrash /></button>
+                <button className="edit-button" type="button" onClick={() => navigate(`/bills/${bill.id}/edit`)} aria-label="Edit"><FaEdit /></button>
+                <button className="noti-button" type="button" onClick={() => handleNotification(bill.name, bill.id, bill.date)} aria-label="Notification"><FaBell /></button>
               </td>
             </tr>
           ))}

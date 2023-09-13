@@ -49,6 +49,7 @@
   margin: 1px;
   width: 2.3rem;
   height: 2.3rem;
+  border: 1px solid #888;
 }
 
 .user-info button:hover {
@@ -59,14 +60,26 @@
 .table-content table tbody tr td button:hover {
   cursor: pointer;
   margin: 0 auto;
-  background-color: #fd0;
 }
 
 .tableButtons {
-  width: 13rem;
+  width: 11rem;
   margin: 0 auto;
   display: flex;
   justify-content: center;
+}
+
+.delete-button {
+  color: #3a3a3a;
+}
+
+.edit-button {
+  color: #3a3a3a;
+  background-color: #fd0;
+}
+
+.noti-button {
+  color: #3a3a3a;
 }
 
 .user-info {
