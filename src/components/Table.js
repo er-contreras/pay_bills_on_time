@@ -2,13 +2,11 @@ import { v4 as uuidv4 } from 'uuid';
 import { useNavigate } from 'react-router-dom';
 import { FaTrash, FaEdit, FaBell } from 'react-icons/fa';
 import PropTypes from 'prop-types';
-import { useState } from 'react';
 
 const Table = (props) => {
   const { bills, handleDelete } = props;
   const navigate = useNavigate();
   const userEmail = JSON.parse(localStorage.getItem('user'))?.email;
-  const [notificationStatus, setNotificationStatus] = useState('');
 
   const handleNotification = (name, id, date) => {
     fetch('http://localhost:3000/bill_notification', {
@@ -24,10 +22,7 @@ const Table = (props) => {
       }),
     }).then((response) => response.json())
       .then((successNotification) => {
-        setNotificationStatus(successNotification.message);
-        setTimeout(() => {
-          setNotificationStatus('');
-        }, 5000);
+        console.log(successNotification);
       })
       .catch((error) => {
         console.log(error);
@@ -36,7 +31,6 @@ const Table = (props) => {
 
   return (
     <div className="table-content">
-      <div className={`notification ${notificationStatus ? 'fade-out' : ''}`}>{notificationStatus}</div>
       <table className="table">
         <thead className="thead">
           <tr>
