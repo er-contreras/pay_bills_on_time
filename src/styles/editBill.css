@@ -2,7 +2,6 @@
   display: flex;
   flex-direction: column;
   text-align: center;
-  max-width: 30%;
   margin: 0 auto;
   padding: 13rem 0;
   color: rgba(255, 255, 255, 0.72);
@@ -52,4 +51,10 @@
 
 .editBackButton:hover {
   color: rgb(255, 255, 255);
+}
+
+@media screen and (max-width: 1000px) {
+  .table-content {
+    min-width: 55%;
+  }
 }
