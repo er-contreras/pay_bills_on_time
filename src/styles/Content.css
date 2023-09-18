@@ -116,7 +116,6 @@
 
 .current-user {
   display: flex;
-  flex-direction: column;
   align-items: center;
   color: rgba(255, 255, 255, 0.75);
   padding: 13rem 0;
@@ -129,8 +128,12 @@
   }
 }
 
-@media screen and (max-width: 475px) {
+@media screen and (max-width: 510px) {
   .table-content {
     min-width: 100%;
+  }
+
+  .user-info button {
+    margin: 0.5rem 0;
   }
 }

@@ -51,8 +51,8 @@
   }
 }
 
-@media screen and (max-width: 475px) {
+@media screen and (max-width: 510px) {
   .login-labels {
-    min-width: 100%;
+    min-width: 65%;
   }
 }
