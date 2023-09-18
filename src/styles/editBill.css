@@ -31,11 +31,17 @@
 }
 
 .editBillContainer form input {
-  padding: 0.5rem;
+  padding: 0.6rem;
+  border-radius: 0.6rem;
+  border: 1px solid #888;
 }
 
 .editBillContainer form button {
   margin: 10px 0 10px 0;
+  padding: 0.6rem;
+  border-radius: 0.6rem;
+  border: 1px solid #888;
+  color: #545454;
 }
 
 .editBackButton {
