@@ -15,6 +15,8 @@
 .login-form a {
   font-size: 2rem;
   margin: 0.5rem 0;
+  color: rgba(255, 255, 255, 0.5);
+  text-decoration: none;
 }
 
 .login-labels {
@@ -47,6 +49,16 @@
   border-radius: 0.6rem;
   border: 1px solid #888;
   color: #545454;
+  cursor: pointer;
+}
+
+.login-labels button:hover {
+  background-color: rgba(255, 0, 0, 0.53);
+  color: rgba(255, 255, 255, 0.64);
+}
+
+.login-form a:hover {
+  color: rgb(255, 255, 255);
 }
 
 /* Media Queries */
