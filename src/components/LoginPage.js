@@ -48,6 +48,15 @@ const LoginPage = () => {
         })
         .then((data) => {
           localStorage.setItem('token', data.token);
+
+          const user = {
+            id: data.user.id,
+            username: data.user.username,
+            email: data.user.email,
+          };
+
+          localStorage.setItem('user', JSON.stringify(user));
+
           navigate('/');
         })
         .catch((error) => {

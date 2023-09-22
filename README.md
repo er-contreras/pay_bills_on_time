@@ -1,11 +1,12 @@
-# Time Management
+# Pay bills on time
 
 > This project was built with Ruby on Rails and ReactJs, it is an app that allows us to add bills and dates to pay them on time.
 
 ## Video presentation
-https://github.com/er-contreras/time_management_FE/assets/67211919/986edbfb-2d44-4055-9a60-9d5c154c93f0
+https://github.com/er-contreras/pay_bills_on_time/assets/67211919/13b4e879-77d9-4124-819a-a22b96c1e1b2
 
-Link to backend repo: https://github.com/er-contreras/time_management_BE
+## Depends on
+Link to backend repo: https://github.com/er-contreras/pay_bills_on_time_api
 
 Additional description of the project and its features.
 
@@ -18,7 +19,7 @@ Additional description of the project and its features.
 ### Install
 - In the terminal go to the folder you are going to work and write the next.
 ```
-git clone https://github.com/er-contreras/time-management_FE.git
+git clone https://github.com/er-contreras/pay_bills_on_time.git
 ```
 ### Usage
 - Don't forget to create a branch to start working on the project.

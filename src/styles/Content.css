@@ -1,48 +1,47 @@
 #content {
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
-  margin-top: 8rem;
 }
 
 .table-content {
   font-size: 1.5rem;
-  min-width: 40%;
-  background-color: white;
+  padding: 2rem;
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 .table-content table {
-  border: 1px solid black;
-  margin: auto;
-  min-width: 100%;
+  margin: 0 auto 4rem auto;
+  min-width: 70%;
 }
 
 .table-content table thead {
   background-color: #f2f2f2;
 }
 
+.table-content table tbody {
+  background-color: #fff;
+}
+
 .table-content table thead tr th {
   padding: 1rem;
-  border: 1px solid black;
   background-color: rgba(255, 0, 0, 0.53);
   color: rgba(255, 255, 255, 0.64);
 }
 
 .table-content table tbody tr td {
+  text-align: center;
   padding: 1rem;
-  border: 1px solid black;
 }
 
 .user-info button {
-  font-size: 1.5rem;
-  padding: 0.4rem;
-  margin: 0.5rem 0;
-  background-color: #fff;
+  font-size: 1.2rem;
+  padding: 0.6rem;
+  margin: 0.5rem 3rem 0.5rem 0;
   border-radius: 0.3rem;
   border: none;
   cursor: pointer;
-  color: rgb(178, 178, 178);
+  color: rgb(201, 201, 201);
+  background: none;
 }
 
 .table-content table tbody tr td button {
@@ -50,7 +49,7 @@
   margin: 1px;
   width: 2.3rem;
   height: 2.3rem;
-  border: 1px solid black;
+  border: 1px solid #888;
 }
 
 .user-info button:hover {
@@ -60,35 +59,78 @@
 
 .table-content table tbody tr td button:hover {
   cursor: pointer;
-  background-color: rgba(15, 197, 176, 0.29);
   margin: 0 auto;
 }
 
+.notification-status {
+  color: #fd0;
+  font-size: 2.2rem;
+  font-weight: 600;
+  text-align: center;
+  margin: 0 auto;
+  height: 4rem;
+}
+
 .tableButtons {
+  width: 11rem;
+  margin: 0 auto;
   display: flex;
   justify-content: center;
 }
 
+.delete-button {
+  color: #3a3a3a;
+  background-color: rgba(255, 0, 0, 0.51);
+}
+
+.delete-button:hover {
+  background-color: rgb(255, 0, 0);
+}
+
+.edit-button {
+  color: #3a3a3a;
+  background-color: rgba(255, 221, 0, 0.53);
+}
+
+.edit-button:hover {
+  background-color: rgb(255, 218, 0);
+}
+
+.noti-button {
+  color: #3a3a3a;
+  background-color: rgba(0, 128, 0, 0.53);
+}
+
+.noti-button:hover {
+  background-color: rgb(0, 224, 0);
+}
+
 .user-info {
   display: flex;
-  flex-direction: column;
   justify-content: space-between;
   font-size: 1.3rem;
-  min-width: 40%;
-  height: 7rem;
-  margin-bottom: 5rem;
-  text-align: center;
+  align-items: center;
+}
+
+.user-info div {
+  padding: 1rem;
 }
 
 .user-info h2 {
-  color: #e1e1e1;
-  font-size: 3.5rem;
+  color: rgba(225, 225, 225, 0.89);
 }
 
 .user-info p {
   margin: 0.1rem 0;
   color: rgba(242, 242, 242, 0.47);
   font-size: 1.5rem;
+}
+
+.current-user {
+  display: flex;
+  align-items: center;
+  color: rgba(255, 255, 255, 0.75);
+  padding: 13rem 0;
 }
 
 /* Media Queries */
@@ -98,8 +140,12 @@
   }
 }
 
-@media screen and (max-width: 475px) {
+@media screen and (max-width: 510px) {
   .table-content {
     min-width: 100%;
+  }
+
+  .user-info button {
+    margin: 0.5rem 0;
   }
 }

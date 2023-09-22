@@ -1,29 +1,14 @@
 import { v4 as uuidv4 } from 'uuid';
-import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FaTrash, FaEdit, FaBell } from 'react-icons/fa';
 import PropTypes from 'prop-types';
-import FetchUser from './FetchUser';
+import { useEffect, useState } from 'react';
 
 const Table = (props) => {
   const { bills, handleDelete } = props;
-  const [users, setUsers] = useState([]);
-  const [currentUser, setCurrentUser] = useState(null);
   const navigate = useNavigate();
-
-  FetchUser({ setUsers });
-
-  useEffect(() => {
-    const token = localStorage.getItem('token');
-
-    if (token) {
-      const decodedToken = atob(token.split('.')[1]);
-      const decodedUserId = JSON.parse(decodedToken);
-
-      const matchingCurrentUser = users.find((user) => user.id === decodedUserId.user_id);
-      setCurrentUser(matchingCurrentUser);
-    }
-  }, [users]);
+  const userEmail = JSON.parse(localStorage.getItem('user'))?.email;
+  const [notificationStatus, setNotificationStatus] = useState('');
 
   const handleNotification = (name, id, date) => {
     fetch('http://localhost:3000/bill_notification', {
@@ -34,37 +19,47 @@ const Table = (props) => {
       },
       body: JSON.stringify({
         bill_notification_data: {
-          name, id, date,
+          name, id, date, userEmail,
         },
       }),
     }).then((response) => response.json())
       .then((successNotification) => {
         console.log(successNotification);
+        setNotificationStatus(successNotification.message);
       })
       .catch((error) => {
         console.log(error);
       });
   };
 
+  useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      setNotificationStatus('');
+    }, 3000);
+
+    return () => clearTimeout(timeoutId);
+  }, [notificationStatus]);
+
   return (
     <div className="table-content">
+      <div className="notification-status">{notificationStatus}</div>
       <table className="table">
         <thead className="thead">
           <tr>
             <th>Name</th>
-            <th>Date</th>
+            <th>Deadline</th>
             <th>Actions</th>
           </tr>
         </thead>
         <tbody>
-          {bills.filter((bill) => bill.user_id === currentUser?.id).map((row) => (
+          {bills.map((bill) => (
             <tr key={uuidv4()}>
-              <td>{row.name}</td>
-              <td>{row.date}</td>
+              <td>{bill.name}</td>
+              <td>{bill.date}</td>
               <td className="tableButtons">
-                <button type="submit" onClick={() => handleDelete(row.id)} aria-label="Delete"><FaTrash /></button>
-                <button type="button" onClick={() => navigate(`/bills/${row.id}/edit`)} aria-label="Edit"><FaEdit /></button>
-                <button type="button" onClick={() => handleNotification(row.name, row.id, row.date)} aria-label="Notification"><FaBell /></button>
+                <button className="delete-button" type="submit" onClick={() => handleDelete(bill.id)} aria-label="Delete"><FaTrash /></button>
+                <button className="edit-button" type="button" onClick={() => navigate(`/bills/${bill.id}/edit`)} aria-label="Edit"><FaEdit /></button>
+                <button className="noti-button" type="button" onClick={() => handleNotification(bill.name, bill.id, bill.date)} aria-label="Notification"><FaBell /></button>
               </td>
             </tr>
           ))}

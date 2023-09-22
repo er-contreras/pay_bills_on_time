@@ -2,8 +2,8 @@
   display: flex;
   flex-direction: column;
   text-align: center;
-  margin-top: 13rem;
   color: rgba(255, 255, 255, 0.73);
+  padding: 13rem 0;
 }
 
 .login-form form {
@@ -15,6 +15,8 @@
 .login-form a {
   font-size: 2rem;
   margin: 0.5rem 0;
+  color: rgba(255, 255, 255, 0.5);
+  text-decoration: none;
 }
 
 .login-labels {
@@ -36,12 +38,27 @@
 
 .login-labels input {
   text-align: center;
-  padding: 0.5rem;
+  padding: 0.6rem;
+  border-radius: 0.6rem;
+  border: 1px solid #888;
 }
 
 .login-labels button {
-  padding: 0.5rem;
+  padding: 0.6rem;
   margin: 2rem 0;
+  border-radius: 0.6rem;
+  border: 1px solid #888;
+  color: #545454;
+  cursor: pointer;
+}
+
+.login-labels button:hover {
+  background-color: rgba(255, 0, 0, 0.53);
+  color: rgba(255, 255, 255, 0.64);
+}
+
+.login-form a:hover {
+  color: rgb(255, 255, 255);
 }
 
 /* Media Queries */
@@ -51,8 +68,8 @@
   }
 }
 
-@media screen and (max-width: 475px) {
+@media screen and (max-width: 510px) {
   .login-labels {
-    min-width: 100%;
+    min-width: 65%;
   }
 }

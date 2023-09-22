@@ -1,13 +1,13 @@
 .task-form-content {
-  min-width: 32%;
-  margin-bottom: 5rem;
+  padding: 2rem 0;
   color: rgba(255, 255, 255, 0.71);
 }
 
 .task-form-content form {
+  max-width: 32%;
   display: flex;
   flex-direction: column;
-  margin: 2rem 0;
+  margin: 2rem auto;
 }
 
 .task-form-content form label {
@@ -19,12 +19,35 @@
 }
 
 .task-form-content form input {
-  padding: 0.5rem;
+  padding: 0.6rem;
   text-align: center;
+  border-radius: 0.6rem;
+  border: 1px solid #888;
 }
 
 .task-form-content form button {
   font-size: 1.5rem;
   padding: 0.5rem;
   margin: 0.5rem 0;
+  border-radius: 0.6rem;
+  border: 1px solid #888;
+  color: #545454;
+  cursor: pointer;
+}
+
+.task-form-content form button:hover {
+  background-color: rgba(255, 0, 0, 0.53);
+  color: rgba(255, 255, 255, 0.64);
+}
+
+@media screen and (max-width: 1000px) {
+  .task-form-content form {
+    max-width: 45%;
+  }
+}
+
+@media screen and (max-width: 510px) {
+  .task-form-content form {
+    max-width: 65%;
+  }
 }
