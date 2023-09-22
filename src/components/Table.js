@@ -24,7 +24,6 @@ const Table = (props) => {
       }),
     }).then((response) => response.json())
       .then((successNotification) => {
-        console.log(successNotification);
         setNotificationStatus(successNotification.message);
       })
       .catch((error) => {
